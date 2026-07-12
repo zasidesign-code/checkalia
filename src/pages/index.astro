@@ -1,17 +1,35 @@
 ---
-
+import { getCollection } from "astro:content";
+const products = await getCollection("products");
+const insurers = await getCollection("insurers");
+const insurerName = (slug) =>
+  insurers.find((i) => i.data.slug === slug)?.data.name ?? slug;
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Checkalia — Comparador de seguros de salud</title>
+  </head>
+  <body>
+    <h1>Comparador de seguros de salud</h1>
+    <div style="display:grid;gap:1rem;max-width:640px">
+      {products.map((p) => (
+        <article style="border:1px solid #ddd;border-radius:8px;padding:1rem">
+          <h2>{p.data.name} — {insurerName(p.data.insurer)}</h2>
+          <p>
+            Desde <strong>{p.data.price_from_eur} €/mes</strong>
+            <small> ({p.data.price_profile})</small>
+          </p>
+          <ul>
+            <li>Modalidad: {p.data.modality}</li>
+            <li>Copago: {p.data.copago}</li>
+            <li>Dental incluido: {p.data.dental_included ? "Sí" : "No"}</li>
+            <li>Telemedicina: {p.data.telemedicine ? "Sí" : "No"}</li>
+          </ul>
+          <small>Datos verificados: {p.data.last_verified}</small>
+        </article>
+      ))}
+    </div>
+  </body>
 </html>

@@ -1,0 +1,18 @@
+name: Más Salud
+insurer: sanitas
+modality: cuadro_medico
+copago: con_copago
+price_from_eur: 45
+price_profile: "30 años, Madrid"
+hospitalization: true
+dental_included: false
+carencias:
+  - treatment: Hospitalización
+    months: 6
+  - treatment: Parto
+    months: 8
+age_limit_new_clients: 65
+telemedicine: true
+source_url: https://www.sanitas.es/ipid-placeholder.pdf
+last_verified: "2026-07-09"
+notes: PLACEHOLDER DATA - verify against real IPID before publishing
