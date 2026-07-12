@@ -1,0 +1,17 @@
+[
+  {
+    "insurer": "sanitas",
+    "product": "mas-salud",
+    "urls": [
+      { "type": "product_page", "url": "https://www.sanitas.es/particulares/seguros-medicos" },
+      { "type": "condicionado", "url": "https://www.sanitas.es/media/sanp/documento/cg-mas-salud-id937/cg_937-mas-salud.pdf" }
+    ]
+  },
+  {
+    "insurer": "sanitas",
+    "product": "primero",
+    "urls": [
+      { "type": "nota_previa", "url": "https://www.sanitas.es/media/documento/archivo/notapreviainformativasanitasprimero/primero.pdf" }
+    ]
+  }
+]
